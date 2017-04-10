@@ -1,0 +1,68 @@
+/*
+* This class has the purpose of taking a data type Location and holding the number of rows and columns
+* may also hold the maximum value and its location in the 2 dimensional array
+*
+*
+* @Brittany King
+*/
+
+public class Location {
+//data
+	public int row;
+	public int col;
+	public double maxVal;
+	
+//constructors
+	public Location(){
+		row=0;
+		col=0;
+		maxVal=0;
+	}
+	public Location(int row, int col, double max){
+		this.row = row;
+		this.col = col;
+		maxVal = max;
+	}
+//methods
+	/*
+	*purpose: search a user input two dimensional array and return the largest 
+	*value and its indexed location
+	*
+	* @param (double[][] a) requires the input of a two dimensional array of type double
+	* @return : a new constructor of type Location with input values of int, int, double
+	*/
+	public static Location locateLargest(double[][] a)
+	{
+
+	    int maxRow= 0,maxCol = 0;
+	    double max= a[0][0];
+
+	    for (int i = 0; i < a.length; i++)
+	    {
+	        for (int j = 0; j < a[i].length; j++)
+	        {
+	            if (a[i][j] > max)
+	            {
+	                maxRow = i;
+	                maxCol = j;
+	                max = a[i][j];
+	            }
+	        }
+	    }
+Location l = new Location(maxRow, maxCol, max);
+		return l;
+	}
+	
+	/*
+	 * purpose: display the information of location
+	 * no input type or return
+	 */
+public void display(){
+	 
+     System.out.print("The location of the largest element is " +maxVal + " at ("+ row + ",");
+     System.out.printf(col +").");
+     
+     
+	
+}
+}
